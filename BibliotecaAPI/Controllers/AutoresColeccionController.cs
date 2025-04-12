@@ -2,6 +2,7 @@
 using BibliotecaAPI.Datos;
 using BibliotecaAPI.DTOs;
 using BibliotecaAPI.Entidades;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +10,7 @@ namespace BibliotecaAPI.Controllers
 {
     [ApiController]
     [Route("api/autores-collecion")]
+    [Authorize] // Requiere autenticacion para acceder a las acciones 
     public class AutoresColeccionController: ControllerBase
     {
         private readonly ApplicationDbContext context;
@@ -21,6 +23,7 @@ namespace BibliotecaAPI.Controllers
         }
 
         [HttpGet("{ids}", Name="ObtenerAutoresPorIds")]
+        // [Authorize] // Requiere autenticación a nivel de función 
         public async Task<ActionResult<List<AutorConLibrosDTO>>> Get(string ids)
         {
             var idsColeccion = new List<int>();

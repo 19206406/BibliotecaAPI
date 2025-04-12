@@ -1,10 +1,10 @@
 ﻿using BibliotecaAPI.Entidades;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace BibliotecaAPI.Datos
 {
-    public class ApplicationDbContext: DbContext // pieza central de Entity Framework Core 
-        // donde se haran configuraciones con la base de datos 
+    public class ApplicationDbContext: IdentityDbContext //nueva forma de manejar la base de datos con Identity  
     {
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
@@ -13,7 +13,7 @@ namespace BibliotecaAPI.Datos
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            base.OnModelCreating(modelBuilder); // código para hacer las migraciones
         }
 
         // especificar las tablas de la bd
