@@ -14,7 +14,7 @@ namespace BibliotecaAPI.Controllers
 {
     [ApiController] 
     [Route("api/autores")]
-    [Authorize] // Requiere autenticacion para acceder a las acciones
+    [Authorize(Policy = "esadmin")] // Requiere autenticacion para acceder a las acciones
     public class AutoresControler : ControllerBase
     {
         private readonly ApplicationDbContext context;

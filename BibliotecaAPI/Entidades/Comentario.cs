@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace BibliotecaAPI.Entidades
 {
@@ -10,5 +11,8 @@ namespace BibliotecaAPI.Entidades
         public DateTime FechaPublicacion { get; set; }
         public int LibroId { get; set; }
         public Libro? Libro { get; set; }
+        public required string UsuarioId { get; set; } // el id del usuario que ha hecho el comentario
+        public Usuario? Usuario { get; set; } // el usuario que ha hecho el comentario
+
     }
 }

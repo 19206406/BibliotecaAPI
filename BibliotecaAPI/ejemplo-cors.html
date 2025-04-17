@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Prueba de cors del Web API (presionar F12)</h1>
+    <script>
+      const urlWebAPI = 'https://localhost:7113/api/autores';
+
+      consumirWebAPI();
+      async function consumirWebAPI() {
+        const respuesta = await fetch(urlWebAPI, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        const json = await respuesta.text();
+        console.log(json);
+
+        const cabeceras = Array.from(respuesta.headers.entries());
+        console.log(cabeceras);
+      }
+    </script>
+  </body>
+</html>

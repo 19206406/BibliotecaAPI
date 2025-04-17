@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BibliotecaAPI.Datos
 {
-    public class ApplicationDbContext: IdentityDbContext //nueva forma de manejar la base de datos con Identity  
+    public class ApplicationDbContext: IdentityDbContext<Usuario> //nueva forma de manejar la base de datos con Identity  
     {
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
