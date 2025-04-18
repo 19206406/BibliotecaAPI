@@ -40,6 +40,7 @@ builder.Services.AddIdentityCore<Usuario>()
 builder.Services.AddScoped<UserManager<Usuario>>(); // para manejar la autenticación y autorización de usuarios
 builder.Services.AddScoped<SignInManager<Usuario>>(); // para manejar la autenticación y autorización de usuarios
 builder.Services.AddTransient<IServiciosUsuarios, ServiciosUsuarios>();
+builder.Services.AddTransient<IServicioHash, ServicioHash>(); // para manejar el hash de las contraseñas
 
 builder.Services.AddHttpContextAccessor(); // para tener el contexto en todas partes
 
